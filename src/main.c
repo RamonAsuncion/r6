@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <raylib.h>
+#include "raylib.h"
 
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
@@ -10,7 +10,6 @@ void Initialize(int screenWidth, int screenHeight, RenderTexture2D *target);
 void DrawSquares(RenderTexture2D target, int rows, int columns, int width, int height, Color colors[], int colorsSize);
 void MainLoop(RenderTexture2D target, Rectangle buttonRec, bool *redraw, int rows, int columns, int width, int height, Color colors[], int colorsSize);
 void Cleanup(RenderTexture2D target);
-// void SaveImage(const char *fileName);
 
 void Initialize(int screenWidth, int screenHeight, RenderTexture2D *target) {
   InitWindow(screenWidth, screenHeight, "raylib [textures] example - texture rendering" );
@@ -55,11 +54,6 @@ void MainLoop(RenderTexture2D target, Rectangle buttonRec, bool *redraw, int row
       DrawRectangleLinesEx(buttonRec, 2, WHITE);
     }
 
-    Rectangle saveButtonRec = { 20, 20, 130, 30 };
-    // if (GuiButton(saveButtonRec, "Save Image")) {
-    //   SaveImage("image.png");
-    // }
-
     EndDrawing();
   }
 }
@@ -68,9 +62,6 @@ void Cleanup(RenderTexture2D target) {
   UnloadRenderTexture(target);
   CloseWindow();
 }
-
-// save the image 
-
 
 int main(void)
 {
